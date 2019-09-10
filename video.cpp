@@ -35,7 +35,7 @@ void Sort::sort(Video *videos[], int length)
         {
             if(type == "rating")
             {
-                if (videos[j]->getRating() > videos[j + 1]->getRating())
+                if (videos[j]->getRating() < videos[j + 1]->getRating())
                 {
                     reassign(videos[j], videos[j + 1]);
                 }

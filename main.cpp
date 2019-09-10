@@ -36,7 +36,7 @@ int main()
         std::cin >> length; // read in video length (in hrs)
         std::cin >> rating; // read in video rating
 
-        if(counter >= MAX)
+        if(counter > MAX)
         {
             // loop until a total of 100 videos have been provided by the user
             std::cerr << "Too many videos, giving up." << std::endl;
