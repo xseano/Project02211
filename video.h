@@ -16,7 +16,7 @@ class Video
         std::string getTitle();
         std::string getUrl();
         std::string getComment();
-        std::string toStar(int num);
+        std::string asterisk();
     private:
         int rating;
         double length;

@@ -94,17 +94,17 @@ int Video::getRating()
     return rating;
 }
 
-std::string Video::toStar(int num)
+std::string Video::asterisk()
 {
     std::string str;
 
-    if (num <= 0)
+    if (getRating() <= 0)
     {
         str = " ";
     }
     else
     {
-        for (int i = 0; i < num; ++i)
+        for (int i = 0; i < getRating(); ++i)
         {
             str += "*";
         }
@@ -115,5 +115,5 @@ std::string Video::toStar(int num)
 
 void Video::print()
 {
-    std::cout << title << ", " << url << ", " << comment << ", " << length << ", " << toStar(rating) << std::endl;
+    std::cout << title << ", " << url << ", " << comment << ", " << length << ", " << asterisk() << std::endl;
 };
