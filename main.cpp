@@ -2,22 +2,25 @@
 
 int main()
 {
-    const int MAX = 100;
-    int counter = 0;
-    Video* videos[MAX];
+    const int MAX = 100; // max constant for array length
+    int counter = 0; // counter used to keep track of videos added
+    Video* videos[MAX]; // Video* array of MAX length
 
+    std::set<std::string> SORT_TYPES = { "rating", "length", "title" };
+
+    // variables for storing video data
     std::string sort;
     std::string title;
     std::string url;
     std::string comment;
     double length;
     int rating;
-    std::set<std::string> sort_types = {"rating", "length", "title"};
 
-    std::cin >> sort; // read in sort type
+    std::cin >> sort; // read in desired sort type
 
-    if(sort_types.find(sort) == sort_types.end())
+    if(SORT_TYPES.find(sort) == SORT_TYPES.end())
     {
+        // desired sort type does not persist in the set of types
         std::cerr << sort << " is not a legal sorting method, giving up." << std::endl;
         return 1;
     }
@@ -42,8 +45,11 @@ int main()
         }
         else
         {
+            // create new video instance
             Video *vid = new Video(title, url, comment, length, rating);
+            // store new video instance in array by position {counter}
             videos[counter] = vid;
+            // increment counter with one element appended
             counter++;
         }
 
