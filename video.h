@@ -11,6 +11,11 @@ class Video
         Video(std::string t, std::string u, std::string c, double l, int r);
         ~Video();
         void print();
+        std::string getTitle();
+        std::string getUrl();
+        std::string getComment();
+        double getLength();
+        int getRating();
         std::string toStar(int num);
     private:
         std::string title;
@@ -26,6 +31,8 @@ class Sort
         Sort(std::string t);
         ~Sort();
         void display(Video *videos[], int length);
+        void rating(Video *videos[], int length);
+        void reassign(Video *vid, Video *ovid);
     private:
         std::string type;
 };
