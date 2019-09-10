@@ -2,11 +2,11 @@
 
 int main()
 {
-	const int MAX = 100;
-	int counter = 0;
+    const int MAX = 100;
+    int counter = 0;
     int videos[MAX];
 
-	std::string sort;
+    std::string sort;
     std::string title;
     std::string url;
     std::string comment;
@@ -46,6 +46,12 @@ int main()
             videos[counter] = vid;
             counter++;
         }
+    }
+
+    for (int i = 0; i < videos.size(); i++)
+    {
+        Video* video = videos[i];
+        video->print();
     }
 
     return 0;
