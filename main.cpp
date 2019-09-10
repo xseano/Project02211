@@ -47,16 +47,13 @@ int main()
             counter++;
         }
 
-        if (std::cin.eof())
-        {
-            for (int i = 0; i < counter; i++)
-            {
-                Video* video = videos[i];
-                video->print();
-            }
+    } while(!std::cin.eof());
 
-            return 0;
-        }
+    for (int i = 0; i < counter; i++)
+    {
+        Video* video = videos[i];
+        video->print();
+    }
 
-    } while(std::cin);
+    return 0;
 }
