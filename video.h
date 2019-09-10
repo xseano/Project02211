@@ -5,12 +5,21 @@
 #include <iomanip>
 #include <set>
 
+// global maxima for array length
+#define MAX 100
+
+// Main class for handling creation and interfacing of video data
 class Video
 {
     public:
+        // constructor/destructor
         Video(std::string t, std::string u, std::string c, double l, int r);
         ~Video();
+
+        // data output
         void print();
+
+        // public methods for obtaining video data
         int getRating();
         double getLength();
         std::string getTitle();
@@ -25,11 +34,15 @@ class Video
         int rating;
 };
 
+// Class for handling sorting, pointer reassignment and display
 class Sort
 {
     public:
+        // constructor/destructor
         Sort(std::string t);
         ~Sort();
+
+        // public methods for sorting and displaying data in videos list
         void sort(Video *videos[], int length);
         void display(Video *videos[], int length);
     private:

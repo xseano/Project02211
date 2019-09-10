@@ -2,10 +2,12 @@
 
 int main()
 {
-    const int MAX = 100; // max constant for array length
-    int counter = 0; // counter used to keep track of videos added
-    Video* videos[MAX]; // Video* array of MAX length
+    // counter used to keep track of videos added
+    int counter = 0;
+    // Video* array of MAX length
+    Video* videos[MAX];
 
+    // valid sorting types
     std::set<std::string> SORT_TYPES = { "rating", "length", "title" };
 
     // variables for storing video data
@@ -16,7 +18,8 @@ int main()
     double length;
     int rating;
 
-    std::cin >> sort; // read in desired sort type
+    // read in desired sort type
+    std::cin >> sort;
 
     if(SORT_TYPES.find(sort) == SORT_TYPES.end())
     {
@@ -29,12 +32,17 @@ int main()
     {
         std::cin.ignore();
 
-        std::getline(std::cin, title); // read in video title
-        std::getline(std::cin, url); // read in video url
-        std::getline(std::cin, comment); // read in video comment
+        // read in video title
+        std::getline(std::cin, title);
+        // read in video url
+        std::getline(std::cin, url);
+        // read in video comment
+        std::getline(std::cin, comment);
 
-        std::cin >> length; // read in video length (in hrs)
-        std::cin >> rating; // read in video rating
+        // read in video length (in hrs)
+        std::cin >> length;
+        // read in video rating
+        std::cin >> rating;
 
         if(counter > MAX)
         {
@@ -44,6 +52,7 @@ int main()
         }
         else if (std::cin.eof())
         {
+            // prevent double input bug on eof
             break;
         }
         else
@@ -58,8 +67,11 @@ int main()
 
     } while(!std::cin.eof());
 
+    // sorter class instantiated with validated sort type
     Sort *sorter = new Sort(sort);
+    // rearrange the array
     sorter->sort(videos, counter);
+    // display the ordered video data
     sorter->display(videos, counter);
 
     return 0;
