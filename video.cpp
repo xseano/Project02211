@@ -8,16 +8,23 @@ Sort::Sort(std::string t)
 
 Sort::~Sort()
 {
-    //
+    // destructor
+    // videos deallocated after output
+}
+
+void Sort::destroy(Video *video)
+{
+    delete video;
 }
 
 void Sort::reassign(Video *vp1, Video *vp2)
 {
-    // store (video)p1 temporarily before reassignment
+    // NOTE: vp stands for " video pointer "
+    // store vp1 temporarily before reassignment
     Video tmp = *vp1;
     // reassignment
     *vp1 = *vp2;
-    // switch (video)p2 to (video)p1 stored in tmp
+    // switch vp2 to vp1 stored in tmp
     *vp2 = tmp;
 }
 
@@ -28,6 +35,8 @@ void Sort::display(Video *videos[], int length)
         Video* video = videos[i];
         // output video data
         video->print();
+        // deallocate the space since it won't be used again
+        destroy(video);
     }
 }
 
@@ -69,7 +78,7 @@ Video::Video(std::string t, std::string u, std::string c, double l, int r)
 
 Video::~Video()
 {
-    //
+    // destructor
 }
 
 std::string Video::getTitle()

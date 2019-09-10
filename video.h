@@ -45,6 +45,7 @@ class Sort
         // public methods for sorting and displaying data in videos list
         void sort(Video *videos[], int length);
         void display(Video *videos[], int length);
+        void destroy(Video *video);
     private:
         std::string type;
         void reassign(Video *vp1, Video *vp2);
