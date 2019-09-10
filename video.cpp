@@ -11,25 +11,11 @@ Sort::~Sort()
     //
 }
 
-void Sort::reassign(Video *vid, Video *ovid)
+void Sort::reassign(Video *vp1, Video *vp2)
 {
-    Video tmp = *vid;
-    *vid = *ovid;
-    *ovid = tmp;
-}
-
-void Sort::rating(Video *videos[], int length)
-{
-    for (int i = 0; i < (length - 1); i++)
-    {
-        for (int j = 0; j < (length - i - 1); j++)
-        {
-            if (videos[j]->getRating() > videos[j + 1]->getRating())
-            {
-                reassign(videos[j], videos[j + 1]);
-            }
-        }
-    }
+    Video tmp = *vp1;
+    *vp1 = *vp2;
+    *vp2 = tmp;
 }
 
 void Sort::display(Video *videos[], int length)
@@ -38,6 +24,37 @@ void Sort::display(Video *videos[], int length)
     {
         Video* video = videos[i];
         video->print();
+    }
+}
+
+void Sort::sort(Video *videos[], int length)
+{
+    for (int i = 0; i < (length - 1); i++)
+    {
+        for (int j = 0; j < (length - i - 1); j++)
+        {
+            if(type == "rating")
+            {
+                if (videos[j]->getRating() > videos[j + 1]->getRating())
+                {
+                    reassign(videos[j], videos[j + 1]);
+                }
+            }
+            else if (type == "length")
+            {
+                if (videos[j]->getLength() > videos[j + 1]->getLength())
+                {
+                    reassign(videos[j], videos[j + 1]);
+                }
+            }
+            else if (type == "title")
+            {
+                if (videos[j]->getTitle() > videos[j + 1]->getTitle())
+                {
+                    reassign(videos[j], videos[j + 1]);
+                }
+            }
+        }
     }
 }
 

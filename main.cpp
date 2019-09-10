@@ -60,7 +60,7 @@ int main()
     } while(!std::cin.eof());
 
     Sort *sorter = new Sort(sort);
-    sorter->rating(videos, counter);
+    sorter->sort(videos, counter);
     sorter->display(videos, counter);
 
     return 0;
