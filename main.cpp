@@ -43,6 +43,10 @@ int main()
             std::cerr << "Too many videos, giving up." << std::endl;
             return 1;
         }
+        else if (std::cin.eof())
+        {
+            break;
+        }
         else
         {
             // create new video instance
