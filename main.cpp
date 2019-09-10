@@ -4,7 +4,7 @@ int main()
 {
     const int MAX = 100;
     int counter = 0;
-    int videos[MAX];
+    Video* videos[MAX];
 
     std::string sort;
     std::string title;
@@ -22,7 +22,7 @@ int main()
         return 1;
     }
 
-    while(!std::cin.eof())
+    do
     {
         std::cin.ignore();
 
@@ -46,13 +46,17 @@ int main()
             videos[counter] = vid;
             counter++;
         }
-    }
 
-    for (int i = 0; i < videos.size(); i++)
-    {
-        Video* video = videos[i];
-        video->print();
-    }
+        if (std::cin.eof())
+        {
+            for (int i = 0; i < counter; i++)
+            {
+                Video* video = videos[i];
+                video->print();
+            }
 
-    return 0;
+            return 0;
+        }
+
+    } while(std::cin);
 }
