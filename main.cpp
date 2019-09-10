@@ -33,7 +33,6 @@ int main()
         std::getline(std::cin, url); // read in video url
         std::getline(std::cin, comment); // read in video comment
 
-        std::cin.ignore();
         std::cin >> length; // read in video length (in hrs)
         std::cin >> rating; // read in video rating
 

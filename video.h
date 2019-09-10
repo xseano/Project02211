@@ -18,11 +18,11 @@ class Video
         std::string getComment();
         std::string asterisk();
     private:
-        int rating;
-        double length;
         std::string title;
         std::string url;
         std::string comment;
+        double length;
+        int rating;
 };
 
 class Sort
