@@ -55,11 +55,8 @@ int main()
 
     } while(!std::cin.eof());
 
-    for (int i = 0; i < counter; i++)
-    {
-        Video* video = videos[i];
-        video->print();
-    }
+    Sort *sorter = new Sort(sort);
+    sorter->display(videos, counter);
 
     return 0;
 }

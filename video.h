@@ -20,5 +20,14 @@ class Video
         int rating;
 };
 
+class Sort
+{
+    public:
+        Sort(std::string t);
+        ~Sort();
+        void display(Video *videos[], int length);
+    private:
+        std::string type;
+};
 
 #endif
