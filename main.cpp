@@ -4,9 +4,10 @@ int main()
 {
     // counter used to keep track of videos added
     int counter = 0;
-    // Video* array of MAX length
-    Video* videos[MAX];
     
+    // Dynamic array of Video pointers
+    Video** videos = (Video**) malloc(MAX * sizeof(Video*));
+
     // valid sorting types
     std::set<std::string> SORT_TYPES =
     {
