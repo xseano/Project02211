@@ -1,3 +1,7 @@
+// main.cpp
+// oberoi, sean
+// ssoberoi
+
 #include "video.h"
 
 int main()

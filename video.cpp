@@ -1,3 +1,7 @@
+// video.cpp
+// oberoi, sean
+// ssoberoi
+
 #include "video.h"
 
 VideoHandler::VideoHandler(std::string t)
@@ -44,28 +48,29 @@ void VideoHandler::sort(Video *videos[], int length)
 {
     bool check = false;
 
-    for (int i = 0; i < (length - 1); i++)
+    for (int inner = 0; inner < (length - 1); inner++)
     {
-        for (int j = 0; j < (length - i - 1); j++)
+        for (int outer = 0; outer < (length - inner - 1); outer++)
         {
+            Video *first = videos[outer];
+            Video *next = videos[outer + 1];
+
             // check sort types to determine how the videos should be compared
             if(type == "rating")
             {
-                check = (videos[j]->getRating() < videos[j + 1]->getRating());
+                check = (first->getRating() < next->getRating());
             }
             else if (type == "length")
             {
-                check = (videos[j]->getLength() > videos[j + 1]->getLength());
+                check = (first->getLength() > next->getLength());
             }
             else if (type == "title")
             {
-                check = (videos[j]->getTitle() > videos[j + 1]->getTitle());
+                check = (first->getTitle() > next->getTitle());
             }
 
-            // if the respective check passes as true, rearrange the video pointers
-            // NOTE: the current main driver does a pre-check on the sort type
-            // so this will be true in any valid use case
-            if (check) { reassign(videos[j], videos[j + 1]); }
+            // if check passes, swap the pointers
+            if (check) { reassign(first, next); }
         }
     }
 }
