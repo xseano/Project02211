@@ -6,9 +6,14 @@ int main()
     int counter = 0;
     // Video* array of MAX length
     Video* videos[MAX];
-
+    
     // valid sorting types
-    std::set<std::string> SORT_TYPES = { "rating", "length", "title" };
+    std::set<std::string> SORT_TYPES =
+    {
+        "rating",
+        "length",
+        "title"
+    };
 
     // variables for storing video data
     std::string sort;
@@ -67,12 +72,12 @@ int main()
 
     } while(!std::cin.eof());
 
-    // sorter class instantiated with validated sort type
-    Sort *sorter = new Sort(sort);
+    // handler instantiated with validated sort type
+    VideoHandler *vh = new VideoHandler(sort);
     // rearrange the array
-    sorter->sort(videos, counter);
+    vh->sort(videos, counter);
     // display the ordered video data
-    sorter->display(videos, counter);
+    vh->display(videos, counter);
 
     return 0;
 }

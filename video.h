@@ -34,13 +34,13 @@ class Video
         int rating;
 };
 
-// Class for handling sorting, pointer reassignment and display
-class Sort
+// Handler for sorting, pointer reassignment and display
+class VideoHandler
 {
     public:
         // constructor/destructor
-        Sort(std::string t);
-        ~Sort();
+        VideoHandler(std::string t);
+        ~VideoHandler();
 
         // public methods for sorting and displaying data in videos list
         void sort(Video *videos[], int length);

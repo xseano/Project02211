@@ -1,23 +1,23 @@
 #include "video.h"
 
-Sort::Sort(std::string t)
+VideoHandler::VideoHandler(std::string t)
     : type(t)
 {
     // constructor w/ initialization list
 }
 
-Sort::~Sort()
+VideoHandler::~VideoHandler()
 {
     // destructor
-    // videos deallocated after output
+    // videos deallocate after output
 }
 
-void Sort::destroy(Video *video)
+void VideoHandler::destroy(Video *video)
 {
     delete video;
 }
 
-void Sort::reassign(Video *vp1, Video *vp2)
+void VideoHandler::reassign(Video *vp1, Video *vp2)
 {
     // NOTE: vp stands for " video pointer "
     // store vp1 temporarily before reassignment
@@ -28,7 +28,7 @@ void Sort::reassign(Video *vp1, Video *vp2)
     *vp2 = tmp;
 }
 
-void Sort::display(Video *videos[], int length)
+void VideoHandler::display(Video *videos[], int length)
 {
     for (int i = 0; i < length; i++)
     {
@@ -40,7 +40,7 @@ void Sort::display(Video *videos[], int length)
     }
 }
 
-void Sort::sort(Video *videos[], int length)
+void VideoHandler::sort(Video *videos[], int length)
 {
     bool check = false;
 
@@ -118,13 +118,9 @@ int Video::getRating()
 
 std::string Video::asterisk()
 {
-    std::string str;
+    std::string str = "";
 
-    if (getRating() <= 0)
-    {
-        str = " ";
-    }
-    else
+    if (getRating() > 0)
     {
         for (int i = 0; i < getRating(); ++i)
         {
