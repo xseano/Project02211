@@ -3,8 +3,8 @@
 int main()
 {
     // counter used to keep track of videos added
-    int counter = 0;
-    
+    size_t counter = 0;
+
     // Dynamic array of Video pointers
     Video** videos = (Video**) malloc(MAX * sizeof(Video*));
 
